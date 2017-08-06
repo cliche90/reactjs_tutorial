@@ -66,6 +66,7 @@
   - webpack
   - webpack-dev-server
 
+
         npm install -g babel webpack webpack-dev-server
         npm install --save react react-dom
         npm install --save-dev babel-core babel-loader babel-preset-react babel-preset-es2015 webpack webpack-dev-server

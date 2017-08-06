@@ -1,4 +1,4 @@
-# ReactJS TUTORIAL.
+# ReactJS TUTORIAL
 
 > 본 내용은 VELOPERT 님 강좌를 정리한 내용입니다.
 - [VELOPERT 님 BLOG's ReactJS 강좌](https://velopert.com/reactjs-tutorials)
@@ -42,3 +42,30 @@
 ## 제한
 - View 레이어에 제한된 사용 영역
 - React 15 버전 이후로는 IE8 이하 버전을 지원하지 않습니다.
+
+---
+
+# 작업 환경 설정
+
+## Package 설치
+- Global Packages
+  - bebel : ES6 를 지원하지 않는 환경에서 ES6 를 사용가능하도록 해주는 패키지
+  - webpack : 모듈 번들러, 브라우저 위에서 import 할수 있도록 해주는 패키지
+  - webpack-dev-server : 서버 구축 없이 웹서버를 열 수 있도록 해주는 개발서버 패키지. 코드 수정시마다 자동으로 리로드
+
+- React Packages
+  - React
+  - react-dom
+
+- Others
+  - babel-dev
+  - babel-core
+  - babel-loader
+  - babel-preset-react
+  - babel-preset-es2015
+  - webpack
+  - webpack-dev-server
+
+    npm install -g babel webpack webpack-dev-server
+    npm install --save react react-dom
+    npm install --save-dev babel-core babel-loader babel-preset-react babel-preset-es2015 webpack webpack-dev-server

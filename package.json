@@ -4,7 +4,8 @@
   "description": "> 본 내용은 VELOPERT 님 강좌를 정리한 내용입니다. - [VELOPERT 님 BLOG's ReactJS 강좌](https://velopert.com/reactjs-tutorials)",
   "main": "HelloWorld.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --hot --host 0.0.0.0"
   },
   "repository": {
     "type": "git",

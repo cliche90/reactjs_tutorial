@@ -70,3 +70,60 @@
         npm install -g babel webpack webpack-dev-server
         npm install --save react react-dom
         npm install --save-dev babel-core babel-loader babel-preset-react babel-preset-es2015 webpack webpack-dev-server
+
+
+# JSX
+- html 을 따옴표로 감싸서 반환하지 않아도 되는 javascript 확장문법
+- 원래는 jsx 확장자를 썼으나, 현재는 js로 쓰는 추세
+
+## Nested Elements
+- 여러개의 Element 를 렌더링하여 반환할 경우에는 반드시 div 와 같은 container element 으로 감싸주어야 에러가 나지 않습니다.
+
+      return (
+        <div>
+          <h1>Hello</h1>
+          <h2>World!!</h2>
+        </div>
+      );
+
+## Javascript in JSX
+- JSX 안에서 js 표현을 사용해야 할 경우 {} 로 묶어 처리합니다.
+
+      render(){
+        return (
+          <div>
+            <h1>Hello</h1>
+            <h2>World {text}</h2>
+          </div>
+        );    
+      }
+
+- 메서드 생성 및 사용에는 다른 것은 비슷하나 호출을 해서는 안됩니다.
+
+      sayHey(){
+        alert("hey");
+      }
+
+      render(){
+        let text = "Dev-Server"
+        return  (
+          <div>
+            <h1> Hello Velopert </h1>
+            <h2> Welcome to {text}</h2>
+            <button onClick={this.sayHey}>Click Me</button>
+          </div>
+        );
+      }
+
+  - JSX 내부에서는 if-else 문의 사용이 불가능 하기 때문에 3항 연산자로 대체합니다.
+  - 주석의 경우에는 `{ /* comment */ }` 의 형식으로 작성합니다. 주석 역시도 container element 내부에 들어와야 합니다.
+
+# props & state
+
+## props
+- 변동되지 않는 데이터를 다룰 때 props 를 이용하며, parent 컴포넌트에서 child 컴포넌트로 데이터를 전달할 때 이용됩니다.
+- `render()` 메소드 안에 `{ this.props.propsName }` 과 같이 넣고 사용시에는 태그 안 쪽에 속성값으로 `propsName="value"` 와 같이 이용합니다.
+
+## state
+- 컴포넌트에서 유동적인 데이터를 다룰 때, state 를 사용
+- state 를 사용하는 컴포넌트의 수는 최소화하는 것이 좋음

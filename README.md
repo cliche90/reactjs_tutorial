@@ -328,5 +328,9 @@
 
 > React Component 스타일링은 방식이 없기 때문에, 취향을 많이 탄다.
 
-
+    npm install -g create-react-app
+    create-react-app styling-react
+    cd styling-react
+	npm run eject
+	npm install -g yarn
 

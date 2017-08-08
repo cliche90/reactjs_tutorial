@@ -339,7 +339,7 @@
 	
 ## CSS Module
 
-- style-loader 설정에 아래의 두 옵션 추가
+- config/webpack.config.dev.js 파일 안의 style-loader 설정에 아래의 두 옵션 추가
 
 		modules: true,
 		localIdentName: '[path][name]__[local]--[hash:base64:5]'
@@ -347,3 +347,36 @@
 
 - App.css 와 App.js 를 원하는 대로 수정한 후, `yarn start` 를 통해 webpack-dev-server를 실행합니다.
 
+## className 추가
+
+- className 이 1개일때
+
+      <div className={styles.box}></div>
+
+- className 이 여러개일 때
+
+      <div className=[styles.box, styles.blue].join(' ')></div>
+
+  > 결국 className 이기 때문에 공백으로 이어주면 된다. 혹은 classnames 라이브러리를 설치하여 아래와 같이 수행한다.
+
+      yarn add classnames
+  >
+
+      <div className={classNames(styles.box, styles.blue)}></div>
+
+- 또한 classNames 의 bind 기능을 사용시, 스타일을 넣을때 `styles.` 을 적지 않아도 됨
+
+
+      import classNames from 'classnames/bind';
+      const cx = classNames.bind(styles);
+    >
+      <div className={cx('box', 'blue')}></div>
+
+- classNames 는 다양한 형식을 동시에 받을 수도 있음
+
+      classNames('foo', { bar: true }); // 'foo bar'
+      classNames('foo', { bar: false }); // 'foo'
+      classNames(['foo', 'bar']); // 'foo bar'
+      // false, null, 0, undefined 는 무시됨
+
+- 즉, boolean 값으로 props로 전달하여 색상 변경하는 일도 가능하다.

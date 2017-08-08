@@ -274,24 +274,59 @@
     
 3. 응용하기
 
-      class Hello extends React.Componet {
-        handleClick() {
-          this.input.value = "";
-          this.input.focus();
-        }
+		class Hello extends React.Componet {
+			handleClick() {
+			  this.input.value = "";
+			  this.input.focus();
+			}
 
-        render() {
-          return (
-            <div>
-              <input ref={ ref => this.input = ref }>
-              <button onClick={ this.handleClick.bind(this) }>
-                Click Me
-              </button>
-            </div>
-          );
-        }
+			render() {
+			  return (
+				<div>
+				  <input ref={ ref => this.input = ref } />
+				  <button onClick={ this.handleClick.bind(this) }>
+					Click Me
+				  </button>
+				</div>
+			  );
+			}
+		}
+
+     	ReactDOM.render(<Hello />, document.getElementById('app'));
+
+
+# 함수형 컴포넌트(Functional Component)
+
+- React 에서 Component 를 정의할 때는 보통 ES6 에 추가된 class 를 이용하지만, 해당 컴포넌트가 Lifecycle API 도, state 도 사용하지 않고, props 만 사용한다면 함수형으로 정의할 수 있음
+
+- Redux 를 사용하여 컴포넌트들을 구성할 때, Container 컴포넌트는 class 형 컴포넌트를 사용, Presentational 컴포넌트는 functional 컴포넌트 사용
+
+      import React from 'react';
+
+      function Hello(props) {
+        return (
+          <div>Hello {props.name}</div>
+        );
       }
 
-      ReactDOM.render(<Hello />, document.getElementById('app'));
+      export default Hello;
+
+- 비구조화 할당(Object Destructuring) 문법을 이용하면 아래와 같이 코드를 작성할 수 있음
+
+
+      import React from 'react';
+
+      const Hello = ({name}) => {
+        return )(
+          <div>Hello {name}</div>
+        );
+      }
+
+      export default Hello;
+
+# React Component 스타일링
+
+> React Component 스타일링은 방식이 없기 때문에, 취향을 많이 탄다.
+
 
 

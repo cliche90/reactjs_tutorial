@@ -127,3 +127,58 @@
 ## state
 - 컴포넌트에서 유동적인 데이터를 다룰 때, state 를 사용
 - state 를 사용하는 컴포넌트의 수는 최소화하는 것이 좋음
+
+
+# Iteration Data
+
+## Javascript - Array.prototype.map
+
+    arr.map(callback, [thisArgs]);
+
+- callback 를 이용하여 각 배열의 항이 제곱된 배열을 리턴하는 코드는 아래와 같이 작성할 수 있습니다.
+
+      let arr = [1, 2, 3, 4, 5];
+      arr.map((num) => { return num * num; });
+
+## 배열의 원소 삽입
+
+    this.setState({
+      list: this.state.list.concat(newObj)
+    });
+
+- 위 방법은 새로운 객체를 배열에 추가하고 기존 배열에 덧씌우는 방식인데, 배열의 크기가 클 경우 비효율적이기 때문에 **Immutability Helpers** 를 사용하며, Immutable-js 라이브러리를 설치하여 사용합니다.
+
+      npm install --save react-addons-update
+
+- 위와 같이 설치한 후 아래쪽과 같은 식으로 작성합니다.
+
+      import update from 'react-addons-update';
+
+      // Some code
+
+      this.setState({
+        list: update(this.state.list, {
+            $push: [newObj, newObj2]
+          })
+      });
+
+
+## 배열의 원소 제거
+
+    this.setState({
+        list: update(this.state.list, {
+          #splice: [[index, 1]]   // index 부터 1개까지 데이터를 제거
+        })
+    });
+
+## 배열의 원소 수정
+
+    this.setState({
+        list: update(this.state.list, {
+          [index]: {
+            field1: { $set: "value1" }
+            field2: { $set: "value2" }
+          }   // list 의 index 번째 obj 의 filed1 과 filed2 값을 수정
+        })
+    });
+

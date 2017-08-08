@@ -182,3 +182,39 @@
         })
     });
 
+
+# Component LifeCycle API
+
+- 컴포넌트 생성시 아래의 순서로 진행
+  1. constructor
+  2. componentWillMount
+  3. render
+  4. componentDidMount
+
+- 컴포넌트 제거시
+  1. componentWillUnmount
+
+- 컴포넌트의 prop 이 변경될 때 아래의 순서로 진행
+  1. componentWillReceiveProps
+  2. shouldComponentUpdate
+  3. componentWillUpdate
+  4. render
+  5. componentDidUpdate
+
+- state 가 변경될 때
+  1. shouldComponent Update
+  2. componentWillUpdate
+  3. render
+  4. componentDidUpdate
+
+## 각 LifeCycle
+
+  - constructor : 컴포넌트가 처음 생성될 때 수행
+  - componentWillMount : 컴포넌트가 DOM 위에 만들어지기 전에 수행
+  - render : 컴포넌트 렌더링을 담당
+  - componentDidMount : 컴포넌트 생성과 첫렌더링 후 수행
+  - componentWillReceiveProps : 컴포넌트가 prop 을 새로 받았을 때 수행
+  - shouldComponentUpdate : prop 혹은 state 가 변경되었을 때 리렌더링을 할지 말지 결정하는 메소드(true or false 리턴)
+  - componentWillUpdate : 컴포넌트가 업데이트 되기 전에 수행(this.setState(0 사용하지 말 것: 무한루프))
+  - componentDidUpdate : 컴포넌트가 리렌더링을 마친 후 수행
+  - componentWillUnmount : 컴포넌트가 DOM 에서 사라진 후 수행

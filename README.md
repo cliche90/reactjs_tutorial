@@ -207,7 +207,7 @@
   3. render
   4. componentDidUpdate
 
-## 각 LifeCycle
+## 각 LifeCycle API 설명
 
   - constructor : 컴포넌트가 처음 생성될 때 수행
   - componentWillMount : 컴포넌트가 DOM 위에 만들어지기 전에 수행

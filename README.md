@@ -334,7 +334,6 @@
     npm install -g create-react-app
     create-react-app styling-react
     cd styling-react
-	npm run eject
 	npm install -g yarn
 	yarn eject
 	
@@ -346,4 +345,4 @@
 		localIdentName: '[path][name]__[local]--[hash:base64:5]'
 
 
-- App.css 와 App.js 를 원하는 대로 수정한 후, `yarn start` 를 통해 서버를 실행합니다.
+- App.css 와 App.js 를 원하는 대로 수정한 후, `yarn start` 를 통해 webpack-dev-server를 실행합니다.

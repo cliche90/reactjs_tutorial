@@ -218,3 +218,80 @@
   - componentWillUpdate : 컴포넌트가 업데이트 되기 전에 수행(this.setState(0 사용하지 말 것: 무한루프))
   - componentDidUpdate : 컴포넌트가 리렌더링을 마친 후 수행
   - componentWillUnmount : 컴포넌트가 DOM 에서 사라진 후 수행
+  
+
+# Ref
+
+> ref 는 reference 로 DOM 요소에 이름을 달아주는 것입니다. DOM의 id 와 유사하지만 DOM 과 컴포넌트에 모두 사용할 수 있다는 차이가 있습니다.
+
+- ref 의 남용은 좋지 않음
+- state, props 로 해결 불가할 경우에만 ref 사용하는 것이 좋음
+
+## 아래와 같은 경우에 사용
+- 컴포넌트에 렌더링 된 DOM 에 직접 처리를 가할 때
+- 큰 프로젝트에 React 컴포넌트를 사용할 때(다른 웹 프레임워크와 혼용하는 등)
+
+## Ref 사용법
+
+1. 문자열 사용(outdated 됨)
+
+        class Hello extends React.Component {
+          render() {
+            return (
+              <div>
+                <input ref="myInput">
+                </input>
+              </div>
+            );
+          }
+
+          componentDidMount() {
+            this.refs.myInput.value = "Hi, I used ref to do this";
+          }
+        }
+
+        ReactDOM.render(<Hello />, document.getElementById('app'));
+
+
+2. Callback 함수 사용하기
+
+        class Hello extends React.Component {
+          render() {
+            return (
+              <div>
+                <input ref={ ref => this.input = ref }>
+                </input>
+              </div>
+            );
+          }
+
+          componentDidMount() {
+            this.input.value = "Hi, I used ref to do this";
+          }
+        }
+
+        ReactDOM.render(<Hello />, document.getElementById('app'));
+    
+3. 응용하기
+
+      class Hello extends React.Componet {
+        handleClick() {
+          this.input.value = "";
+          this.input.focus();
+        }
+
+        render() {
+          return (
+            <div>
+              <input ref={ ref => this.input = ref }>
+              <button onClick={ this.handleClick.bind(this) }>
+                Click Me
+              </button>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<Hello />, document.getElementById('app'));
+
+

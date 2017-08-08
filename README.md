@@ -328,9 +328,22 @@
 
 > React Component 스타일링은 방식이 없기 때문에, 취향을 많이 탄다.
 
+
+## 준비
+
     npm install -g create-react-app
     create-react-app styling-react
     cd styling-react
 	npm run eject
 	npm install -g yarn
+	yarn eject
+	
+## CSS Module
 
+- style-loader 설정에 아래의 두 옵션 추가
+
+		modules: true,
+		localIdentName: '[path][name]__[local]--[hash:base64:5]'
+
+
+- App.css 와 App.js 를 원하는 대로 수정한 후, `yarn start` 를 통해 서버를 실행합니다.

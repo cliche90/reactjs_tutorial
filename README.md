@@ -334,8 +334,8 @@
     npm install -g create-react-app
     create-react-app styling-react
     cd styling-react
-	npm install -g yarn
-	yarn eject
+    npm install -g yarn
+    yarn eject
 	
 ## CSS Module
 
@@ -346,3 +346,4 @@
 
 
 - App.css 와 App.js 를 원하는 대로 수정한 후, `yarn start` 를 통해 webpack-dev-server를 실행합니다.
+
